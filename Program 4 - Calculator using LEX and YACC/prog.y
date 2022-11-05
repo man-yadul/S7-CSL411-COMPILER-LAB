@@ -34,5 +34,5 @@ void main()
 void yyerror()
 {
 	printf("Invalid expression.\n");
-   	flag=1;
+   	flag = 1;
 }
