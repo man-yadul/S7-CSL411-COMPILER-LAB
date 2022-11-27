@@ -1,4 +1,7 @@
 /*
+Yadul Manoj
+github.com/man-yadul
+
 Recursive descent parser for a given grammar
 Grammar -
 S -> aABe
