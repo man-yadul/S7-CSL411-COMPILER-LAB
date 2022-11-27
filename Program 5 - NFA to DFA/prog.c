@@ -1,3 +1,11 @@
+/*
+Yadul Manoj
+github.com/man-yadul
+
+NFA to DFA
+Refer input.png for input details
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
