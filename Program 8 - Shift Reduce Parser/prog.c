@@ -83,7 +83,7 @@ void main()
                 printf("%-20s%-20s%-20s\n", stack, input, "Shift");
             }
         }
-    } while ((shift == 1 || reduce == 1));
+    } while (shift == 1 || reduce == 1);
 
     printf("String rejected.\n");
 }
