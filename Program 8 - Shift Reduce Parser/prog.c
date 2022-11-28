@@ -22,7 +22,7 @@ void main()
     input_ptr = 0;
     stack_top = -1;
 
-    printf("Grammar:\nS->(L) | a\nL -> L,S | S\n");
+    printf("Grammar:\nS -> (L) | a\nL -> L,S | S\n");
     printf("Enter input string: ");
     scanf("%s", input);
     printf("%-20s%-20s%-20s\n", "Stack", "Input", "Action");
