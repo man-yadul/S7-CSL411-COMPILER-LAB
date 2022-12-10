@@ -66,7 +66,7 @@ void main()
             int value = atoi(temp);
             values[lines[i][0]] = value;
         }
-        // Arithmetic expression
+        // Arithmetic expression (eg:- b=a+c)
         else
         {
             int operand1, operand2;
