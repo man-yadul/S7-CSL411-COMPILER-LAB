@@ -45,7 +45,7 @@ void main()
 
     for (int i = 0; i < no_of_lines; i++)
     {
-        // Check if line is a number assignment statement; flag is set to 1 if not
+        // Check if line is a number assignment statement (eg:- a=2); flag is set to 1 if not
         int flag = 0;
         for (int j = 2; j < strlen(lines[i]); j++)
         {
