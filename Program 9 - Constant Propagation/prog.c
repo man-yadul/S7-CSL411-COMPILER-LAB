@@ -7,7 +7,7 @@ Constant propagation
 The input program MUST NOT HAVE ANY SPACES AND SEMICOLONS
 The variable name CANNOT have more than one character, i.e. a=20 - valid, abc=20 - invalid
 
-Sample input:
+Sample input and output:
 Enter no. of lines of the program: 5
 Enter the program:
 a=20
