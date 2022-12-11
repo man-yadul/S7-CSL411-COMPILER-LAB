@@ -68,6 +68,7 @@ void main()
     char queue[20][10];
     int front = 0;
     int rear = 0;
+    // Total rows of the final DFA table
     int rows = 0;
 
     for (int i = 0; i < 20; i++)
@@ -79,6 +80,8 @@ void main()
     // Repeat until queue is empty
     while (strcmp(queue[front], "") != 0)
     {
+        // Keeps track of new rows of DFA table when new states are added
+        int temp_rows = rows;
         // Contains the new states that are found for an input symbol transition for each state
         char new_states[20];
 
@@ -93,14 +96,15 @@ void main()
             for (int i = 0; i < 20; i++)
                 strcpy(new_states, "");
 
-            // For each sub-state in the current state - i.e., q0, q1, q2 in q0q1q2 
+            // Loop to find the transitions for each input of the current state in the front of the queue
+            // i = 1; i += 2: For each sub-state in the current state - i.e., q0, q1, q2 in q0q1q2
             for (int i = 1; i < strlen(queue[front]); i += 2)
             {
                 if (isdigit(queue[front][i]))
                 {
                     int n = queue[front][i] - '0';
 
-                    // For each sub-state in the new state - i.e., q1, q2 in q0 -> q1q2 
+                    // Loop to find the transitions of the current state that is being checked
                     for (int l = 1; l < strlen(nfa_table[n][j]); l += 2)
                     {
                         int num1;
@@ -109,7 +113,8 @@ void main()
                             num1 = nfa_table[n][j][l] - '0';
                         }
 
-                        // Check if state is already added in new states list
+                        // Loop to check if a transition creates duplicate states;
+                        // eg:- if q0q1 has input 0 transitions as q0 -> q1 and q1 -> q1, q1 need not be added twice to new_states
                         int flag2 = 0;
                         int num2;
                         for (int m = 1; m < strlen(new_states); m += 2)
@@ -164,7 +169,7 @@ void main()
                 strcat(new_states, tempstr);
             }
 
-            // Check if new state is already in queue
+            // Check if new state is already in queue, if not, add it to queue
             int flag = 0;
             for (int a = 0; a < rear; a++)
             {
@@ -178,14 +183,14 @@ void main()
             {
                 strcpy(queue[rear], new_states);
                 rear++;
-                strcpy(final_dfa[rows][j + 1], new_states);
-                rows++;
-                strcpy(final_dfa[rows][0], new_states);
+                // Add new state to the next row of the final DFA table
+                strcpy(final_dfa[++temp_rows][0], new_states);
             }
 
             strcpy(final_dfa[rows][j + 1], new_states);
         }
 
+        rows++;
         front++;
     }
 
@@ -197,7 +202,7 @@ void main()
     for (int i = 0; i < 11 * (inputs + 1); i++)
         printf("%s", "=");
     printf("\n");
-    for (int i = 0; i <= rows; i++)
+    for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < inputs + 1; j++)
         {
