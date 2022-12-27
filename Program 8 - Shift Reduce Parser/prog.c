@@ -48,7 +48,7 @@ void main()
         reduce = 1;
 
         // Bottom of the stack contains the starting symbol and the input buffer is empty
-        if (stack[0] == 'S' && input[strlen(input) - 1] == ' ')
+        if (stack[0] == productions[0][0] && input[strlen(input) - 1] == ' ')
         {
             printf("String accepted.\n");
             exit(0);
