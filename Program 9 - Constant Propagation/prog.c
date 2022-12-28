@@ -4,8 +4,9 @@ https://github.com/man-yadul
 
 Constant propagation
 
+The RHS of the expression can only have one operator and two operands, e.g. a=b+c
 The input program MUST NOT HAVE ANY SPACES AND SEMICOLONS
-The variable name CANNOT have more than one character, i.e. a=20 - valid, abc=20 - invalid
+The variable name CANNOT have more than one character, e.g. a=20 - valid, abc=20 - invalid
 
 Sample input and output:
 Enter no. of lines of the program: 5
