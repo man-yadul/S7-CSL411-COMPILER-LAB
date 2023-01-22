@@ -1,4 +1,7 @@
 /*
+Yadul Manoj
+https://github.com/man-yadul
+
 Program to check if a number is a real number or not.
 Valid input - 3, 3.14, 0.14, .14
 
