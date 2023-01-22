@@ -12,8 +12,6 @@ The program accepts a line of tokens (or a single token) and checks each token i
 Sample input and output:
 
 user@DESKTOP-RTDC9H3:~$ vi prog.l
-user@DESKTOP-RTDC9H3:~$ gcc lex.yy.c -lfl
-user@DESKTOP-RTDC9H3:~$ vi prog.l
 user@DESKTOP-RTDC9H3:~$ lex prog.l
 user@DESKTOP-RTDC9H3:~$ gcc lex.yy.c -lfl
 user@DESKTOP-RTDC9H3:~$ ./a.out
