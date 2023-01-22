@@ -7,7 +7,7 @@ Lex Program to check if a token is an identifier or a keyword.
 Valid input keywords: void, main, if, else, break, continue, const, final, switch, for, while, include
 Accepts all valid identifiers.
 
-The program accepts a line of tokens (or an individual token) and checks each token indvidually.
+The program accepts a line of tokens (or a single token) and checks each token indvidually.
 
 user@DESKTOP-RTDC9H3:~$ vi prog.l
 user@DESKTOP-RTDC9H3:~$ gcc lex.yy.c -lfl
