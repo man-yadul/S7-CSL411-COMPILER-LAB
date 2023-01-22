@@ -3,6 +3,9 @@ Yadul Manoj
 github.com/man-yadul
 
 NFA to DFA
+
+THE PROGRAM DOES NOT SUPPORT EPSILON TRANSITIONS
+
 Refer input.png for input details
 */
 
