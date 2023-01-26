@@ -1,0 +1,39 @@
+/*
+https://github.com/man-yadul
+
+YACC Program to identify strings of the pattern a^nb^n, n >= 0
+
+Sample input and output:
+
+user@DESKTOP-RTDC9H3:~$ yacc -d p3.y
+user@DESKTOP-RTDC9H3:~$ lex p3.l
+user@DESKTOP-RTDC9H3:~$ gcc lex.yy.c y.tab.c -w
+user@DESKTOP-RTDC9H3:~$ ./a.out
+Enter the string:
+ab
+Valid.
+user@DESKTOP-RTDC9H3:~$ ./a.out
+Enter the string:
+aaaabbbb
+Valid.
+user@DESKTOP-RTDC9H3:~$ ./a.out
+Enter the string:
+abb
+Invalid.
+*/
+
+%{
+	#include "y.tab.h"
+%}
+
+%%
+[aA]	return A;
+[bB]	return B;
+\n	return NL;
+.	return yytext[0];
+%%
+
+int yywrap()
+{
+	return 1;
+}
