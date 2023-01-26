@@ -1,13 +1,14 @@
 %{
 	#include <stdio.h>
 	int valid = 1;
+	int count = 0;
 %}
 
 %token A B NL
 
 %%
 start: S NL;
-S: A S B |;
+S: A S B {count += 2;} |;
 %%
 
 int yyerror()
@@ -24,6 +25,6 @@ void main()
 
 	if (valid)
 	{
-		printf("Valid.\n");
+		printf("Valid.\nLength: %d\n", count);
 	}
 }
