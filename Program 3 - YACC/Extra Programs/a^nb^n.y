@@ -4,10 +4,10 @@
 	int count = 0;
 %}
 
-%token A B NL
+%token A B
 
 %%
-start: S NL;
+start: S;
 S: A S B {count += 2;} |;
 %%
 
