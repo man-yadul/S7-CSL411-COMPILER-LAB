@@ -20,6 +20,9 @@ user@DESKTOP-RTDC9H3:~$ ./a.out
 Enter the string:
 abb
 Invalid.
+Enter the string:
+ 
+Valid.
 */
 
 %{
