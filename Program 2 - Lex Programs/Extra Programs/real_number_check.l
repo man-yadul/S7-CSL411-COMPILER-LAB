@@ -21,6 +21,10 @@ user@DESKTOP-RTDC9H3:~$ ./a.out
 asf
 asf
 Not a real number.
+user@DESKTOP-RTDC9H3:~$ ./a.out
+0.44jh
+
+Not a real number.
 */
 
 %{
@@ -29,14 +33,15 @@ int flag = 0;
 %}
 
 %%
-[0-9]*(\.)?[0-9]+	{flag = 1;}
+[0-9]*(\.)?[0-9]+       flag = 1;
+.                       flag = 0;
 %%
 
 void main()
 {
-	yylex();
-	if (flag == 1)
-		printf("Real number.\n");
-	else
-		printf("Not a real number.\n");
+        yylex();
+        if (flag == 1)
+                printf("Real number.\n");
+        else
+                printf("Not a real number.\n");
 }
