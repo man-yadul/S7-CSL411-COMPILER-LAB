@@ -49,7 +49,7 @@ Invalid.
 %%
 if			return IF;
 [\(\)]			return PARANTHESIS;
-[a-zA-Z0-9]*		return OPERAND;
+[a-zA-Z0-9]+		return OPERAND;
 "<"|">"|">="|"<="|"=="	return RELOP;	
 .			return yytext[0];
 %%
