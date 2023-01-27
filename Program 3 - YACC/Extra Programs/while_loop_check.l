@@ -69,7 +69,7 @@ while			return WHILE;
 ">"|"<"|">="|"<="|"=="	return RELOP;
 "{"|"}"			return CURL_BRACKET;
 \n			return NEWLINE;
-.			return yytext[0];
+.			;
 %%
 
 int yywrap()
