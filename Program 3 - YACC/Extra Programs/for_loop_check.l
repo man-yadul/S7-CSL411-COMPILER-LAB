@@ -2,6 +2,7 @@
 https://github.com/man-yadul
 
 YACC Program to check the syntax of a for loop
+
 The program only checks the syntax of a for loop header 
 The input MUST NOT have any spaces between the tokens
 
