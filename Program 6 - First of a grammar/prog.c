@@ -1,127 +1,98 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <string.h>
 
-int count, n = 0;
-// Stores the final result of the First Sets
-char calc_first[10][100];
-
-// Stores the production rules
-char production[10][10];
-char first[10];
-int k;
-
-void findfirst(char c, int q1, int q2)
+void FIRST(char[], char);
+void addToResultSet(char[], char);
+int numOfProductions;
+char productionSet[10][10];
+void main()
 {
-    int j;
-
-    // Terminal encountered
-    if (isupper(c) == 0)
+    int i, j;
+    char choice;
+    char c, g;
+    char result[20];
+    printf("How many number of productions ? :");
+    scanf(" %d", &numOfProductions);
+    for (i = 0; i < numOfProductions; i++) // read production string eg: E=E+T
     {
-        first[n++] = c;
+        printf("Enter production Number %d : ", i + 1);
+        scanf(" %s", productionSet[i]); // contains set of all productions
     }
-
-    for (j = 0; j < count; j++)
+    printf("FIRST OF : \n");
+    for (i = 0; i < numOfProductions; i++)
     {
-        if (production[j][0] == c)
+        c = productionSet[i][0];
+        FIRST(result, c); // Compute FIRST; Get Answer in 'result' array
+        if (productionSet[i][2] != '$')
         {
-            if (production[j][2] == '#')
+            printf("(%c) ={", c);
+            for (j = 0; result[j] != '\0'; j++)
             {
-                if (production[q1][q2] == '\0')
-                    first[n++] = '#';
-                else if (production[q1][q2] != '\0' && (q1 != 0 || q2 != 0))
-                {
-                    // Recursion to calculate First of New non-terminal we encounter after epsilon
-                    findfirst(production[q1][q2], q1, (q2 + 1));
-                }
-                else
-                    first[n++] = '#';
-            }
-            else if (!isupper(production[j][2]))
-            {
-                first[n++] = production[j][2];
-            }
-            else
-            {
-                // Recursion to calculate First of new Non-Terminal we encounter at the beginning
-                findfirst(production[j][2], j, 3);
-            }
+                printf("%c ", result[j]);
+            } // Display result
+            printf("}\n");
         }
     }
 }
-
-int main(int argc, char **argv)
+/*
+Function FIRST:
+Compute the elements in FIRST(c) and write them in Result Array.
+*/
+void FIRST(char *Result, char c)
 {
-    int jm = 0;
-    int i, j, choice;
-    char c, ch;
-
-    printf("Enter no. of productions: ");
-    scanf("%d", &count);
-    for (int i = 0; i < count; i++)
+    int i, j, k;
+    char subResult[20];
+    int foundEpsilon;
+    subResult[0] = '\0';
+    Result[0] = '\0';
+    // If X is terminal, FIRST(X) = {X}.
+    if (!(isupper(c)))
     {
-        printf("Enter production %d: ", i);
-        scanf("%s", production[i]);
+        addToResultSet(Result, c);
+        return;
     }
-
-    char done[count];
-    int ptr = -1;
-
-    // Initializing the calc_first array
-    for (i = 0; i < count; i++)
+    // If X is non terminal Read each production
+    for (i = 0; i < numOfProductions; i++)
     {
-        for (j = 0; j < 100; j++)
+        // Find production with X as LHS
+        if (productionSet[i][0] == c)
         {
-            calc_first[i][j] = '!';
-        }
-    }
-    int point1 = 0, point2, flag;
-
-    for (k = 0; k < count; k++)
-    {
-        c = production[k][0];
-        point2 = 0;
-        flag = 0;
-
-        // Checking if First of c has already been calculated
-        for (int t = 0; t <= ptr; t++)
-            if (c == done[t])
-                flag = 1;
-
-        if (flag == 1)
-            continue;
-
-        // Function call
-        findfirst(c, 0, 0);
-        ptr += 1;
-
-        // Adding c to the calculated list
-        done[ptr] = c;
-        printf("\nFirst(%c) = {", c);
-        calc_first[point1][point2++] = c;
-
-        // Printing the First Sets of the grammar
-        for (i = 0 + jm; i < n; i++)
-        {
-            int p = 0, chk = 0;
-
-            for (p = 0; p < point2; p++)
+            // If X → ε is a production, then add ε to FIRST(X).
+            if (productionSet[i][2] == '$')
+                addToResultSet(Result, '$');
+            // If X is a non-terminal, and X → Y1 Y2 … Yk is a production, then add a to FIRST(X) if for some i, a is in FIRST(Yi), and ε is in all of FIRST(Y1), …, FIRST(Yi-1).
+            else
             {
-                if (first[i] == calc_first[point1][p])
+                j = 2;
+                while (productionSet[i][j] != '\0')
                 {
-                    chk = 1;
-                    break;
+                    foundEpsilon = 0;
+                    FIRST(subResult, productionSet[i][j]);
+                    for (k = 0; subResult[k] != '\0'; k++)
+                        addToResultSet(Result, subResult[k]);
+                    for (k = 0; subResult[k] != '\0'; k++)
+                        if (subResult[k] == '$')
+                        {
+                            foundEpsilon = 1;
+                            break;
+                        }
+                    // No ε found, no need to check next element
+                    if (!foundEpsilon)
+                        break;
+                    j++;
                 }
             }
-
-            if (chk == 0)
-            {
-                printf("%c, ", first[i]);
-                calc_first[point1][point2++] = first[i];
-            }
         }
-        printf("}\n");
-        jm = n;
-        point1++;
     }
+    return;
+}
+// addToResultSet adds the computed element to result set. This code avoids multiple inclusion of elements
+void addToResultSet(char Result[], char val)
+{
+    int k;
+    for (k = 0; Result[k] != '\0'; k++)
+        if (Result[k] == val)
+            return;
+    Result[k] = val;
+    Result[k + 1] = '\0';
 }
