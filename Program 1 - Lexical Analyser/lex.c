@@ -9,7 +9,7 @@ Supported operators - +, +=, -, -=, *, *=, /, /=, =
 Supported punctuators - ;
 Supported separators - (, ), {, }
 
-Input program is stored in file lex.txt.
+Input program is stored in the file input.txt.
 DO NOT ENTER THE INPUT PROGRAM WITHOUT SPACES BETWEEN EACH TOKEN (EXCEPT FOR THE
 SEMICOLON). eg:- int a = 45; - Valid int a=45; - Invalid
 */
