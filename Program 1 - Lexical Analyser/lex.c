@@ -7,7 +7,7 @@ Lexical Analyser
 Supported keywords - int, long, float, double, void
 Supported operators - +, +=, -, -=, *, *=, /, /=, =
 Supported punctuators - ;
-Supported separators - (, ), {, }s
+Supported separators - (, ), {, }
 
 Input program is stored in file lex.txt.
 DO NOT ENTER THE INPUT PROGRAM WITHOUT SPACES BETWEEN EACH TOKEN (EXCEPT FOR THE
