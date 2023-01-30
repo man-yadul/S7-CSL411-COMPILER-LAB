@@ -305,7 +305,7 @@ int check_identifier(char *token) {
 void main() {
   char *token;
   char str[100];
-  FILE *f = fopen("lex.txt", "r");
+  FILE *f = fopen("input.txt", "r");
 
   /*
   The below while loop reads each line of the file lex.txt.
