@@ -9,9 +9,12 @@ Supported operators - +, +=, -, -=, *, *=, /, /=, =
 Supported punctuators - ;
 Supported separators - (, ), {, }
 
-Input program is stored in the file input.txt.
 DO NOT ENTER THE INPUT PROGRAM WITHOUT SPACES BETWEEN EACH TOKEN (EXCEPT FOR THE
 SEMICOLON). eg:- int a = 45; - Valid int a=45; - Invalid
+Comment lines are NOT supported.
+
+Input program is stored in the file input.txt.
+Remove comment lines from the input file for the program to run properly.
 */
 
 #include <ctype.h>
