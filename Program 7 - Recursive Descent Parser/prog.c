@@ -20,7 +20,7 @@ Input 3: abce - rejected
 #include <string.h>
 
 char input[10];
-int i = 0, valid = 0;
+int i = 0, valid = 1;
 
 void S();
 void A();
@@ -34,10 +34,9 @@ void S()
         i++;
         A();
         B();
-        if (input[i] == 'e' && input[i + 1] == '\0')
+        if (input[i] == 'e')
         {
             i++;
-            valid = 1; 
         }
         else  
         {
