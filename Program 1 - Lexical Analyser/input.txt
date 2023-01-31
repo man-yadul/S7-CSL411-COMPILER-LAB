@@ -1,7 +1,12 @@
 void main()
 {
-    int a = 4;
-    float a = 1.56;
-    double abc = 3.14159;
-    a = 3;
+    // afsafd
+    /* dsfdsf
+    gnvbmvnm
+    jklhkl */
+    int a=15;
+    int b = 21;
+    float c = 3.1415;
+    double d = 2;
+    int a[4] = {1, 2, 3, 4};
 }
