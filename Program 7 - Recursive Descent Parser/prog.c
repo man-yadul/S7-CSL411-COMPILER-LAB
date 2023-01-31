@@ -17,9 +17,10 @@ Input 3: abce - rejected
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char input[10];
-int i = 0;
+int i = 0, valid = 0;
 
 void S();
 void A();
@@ -36,19 +37,16 @@ void S()
         if (input[i] == 'e' && input[i + 1] == '\0')
         {
             i++;
-            printf("Accepted.\n");
-            exit(0); 
+            valid = 1; 
         }
         else  
         {
-            printf("Rejected.\n");
-            exit(0);
+            valid = 0;
         }
     }
     else
     {
-        printf("Rejected.\n");
-        exit(0);    
+        valid = 0;
     }
 }
 
@@ -61,8 +59,7 @@ void A()
     }
     else
     {
-        printf("Rejected.\n");
-        exit(0);
+        valid = 0;
     }
 }
 
@@ -78,8 +75,7 @@ void A_dash()
         }
         else
         {
-            printf("Rejected.\n");
-            exit(0);
+            valid = 0;
         }
     }
 }
@@ -92,8 +88,7 @@ void B()
     }
     else
     {
-        printf("Rejected.\n");
-        exit(0);
+        valid = 0;
     }
 }
 
@@ -103,4 +98,10 @@ void main()
     scanf("%s", input);
 
     S();
+
+    // All productions checked and input is empty
+    if (valid == 1 && i == strlen(input))
+        printf("Accepted.\n");
+    else  
+        printf("Rejected.\n"); 
 }
