@@ -33,10 +33,10 @@ int is_operator(char c)
 {
     switch (c)
     {
-        case '+':   ;
-        case '-':   ;
-        case '*':   ;
-        case '/':   ;
+        case '+':   
+        case '-':   
+        case '*':   
+        case '/':   
         case '=':   
             printf("%c - Operator\n", c);
             return 1;
