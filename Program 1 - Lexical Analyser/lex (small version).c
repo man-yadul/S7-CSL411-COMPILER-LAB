@@ -14,9 +14,15 @@
 // void main()
 // {
 //     // afsafd
-//     /* dvsdfsd
-//     dsfdsffdds
-//     hdhdfhdf*/
+//     // asdas
+//     //fjfh
+//     int c=22;
+//     /*
+//     dasd
+//     */
+//     /* dsfdsf
+//     gnvbmvnm
+//     jklhkl */
 //     int a=15;
 //     int b = 21;
 //     float c = 3.1415;
@@ -84,20 +90,22 @@ void main()
     while (fgets(line, sizeof(line), f))
     {
         // Single line commment '//', skip processing it
+        int flag1 = 0;
         for (int i = 0; i < strlen(line); i++)
         {
             if (line[i] == '/' && line[i + 1] == '/')
             {
-                fgets(line, sizeof(line), f);
+                flag1 = 1;
                 break;
             }       
         }
+        if (flag1)
+            continue;        
 
         // Multi-line comment '/**/'
+        int flag2 = 0;
         for (int i = 0; i < strlen(line); i++)
         {
-            int flag = 0;
-
             if (line[i] == '/' && line[i + 1] == '*')
             {
                 // Skip all lines until '*/' has occured
@@ -106,20 +114,16 @@ void main()
                     for (int j = 0; j < strlen(line); j++)
                     {
                         if (line[j] == '*' && line[j + 1] == '/')
-                            flag = 1;
+                            flag2 = 1;
                     }
 
-                    if (flag)
+                    if (flag2)
                         break;
                 }
             }
-
-            if (flag)
-            {
-                fgets(line, sizeof(line), f);
-                break;
-            }
         }
+        if (flag2)
+            continue;
 
         printf("\n%s\n", line);
 
