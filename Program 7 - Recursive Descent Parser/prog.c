@@ -35,18 +35,12 @@ void S()
         A();
         B();
         if (input[i] == 'e')
-        {
             i++;
-        }
         else  
-        {
             valid = 0;
-        }
     }
     else
-    {
         valid = 0;
-    }
 }
 
 void A()
@@ -57,9 +51,7 @@ void A()
         A_dash();
     }
     else
-    {
         valid = 0;
-    }
 }
 
 void A_dash()
@@ -73,22 +65,16 @@ void A_dash()
             A_dash();
         }
         else
-        {
             valid = 0;
-        }
     }
 }
 
 void B()
 {
     if (input[i] == 'd')
-    {
         i++;
-    }
     else
-    {
         valid = 0;
-    }
 }
 
 void main()
