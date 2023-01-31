@@ -1,6 +1,12 @@
 void main()
 {
     // afsafd
+    // asdas
+    //fjfh
+    int c=22;
+    /*
+    dasd
+    */
     /* dsfdsf
     gnvbmvnm
     jklhkl */
