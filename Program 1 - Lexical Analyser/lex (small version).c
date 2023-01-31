@@ -6,7 +6,7 @@
 // Supported keywords - int, long, float, double, void
 // Supported operators - +, -, *, /, =
 // Supported delimiters - (, ), {, }, [, ], ',', ;
-// Single line and multi-line comments supported. The '/*' '*/' of the multi-line comment must be placed in separate lines (refer input.txt)
+// Single line and multi-line comments supported
 // Input program is stored in file input.txt.
 
 // Sample input: 
@@ -14,9 +14,9 @@
 // void main()
 // {
 //     // afsafd
-//     /*
-//     dsfdsf
-//     */
+//     /* dvsdfsd
+//     dsfdsffdds
+//     hdhdfhdf*/
 //     int a=15;
 //     int b = 21;
 //     float c = 3.1415;
@@ -93,7 +93,7 @@ void main()
             }       
         }
 
-        // Multi-line comment '/**/', '/*' and '*/' are assumed to be entered on separate lines. All lines in between are ignored
+        // Multi-line comment '/**/'
         for (int i = 0; i < strlen(line); i++)
         {
             int flag = 0;
