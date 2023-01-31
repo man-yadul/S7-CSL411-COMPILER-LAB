@@ -3,6 +3,7 @@ Yadul Manoj
 github.com/man-yadul
 
 Recursive descent parser for a given grammar
+
 Grammar -
 S -> aABe
 A -> bA'
@@ -18,7 +19,7 @@ Input 3: abce - rejected
 #include <stdlib.h>
 
 char input[10];
-int i = 0, accept = 0;
+int i = 0;
 
 void S();
 void A();
@@ -35,8 +36,19 @@ void S()
         if (input[i] == 'e' && input[i + 1] == '\0')
         {
             i++;
-            accept = 1;
+            printf("Accepted.\n");
+            exit(0); 
         }
+        else  
+        {
+            printf("Rejected.\n");
+            exit(0);
+        }
+    }
+    else
+    {
+        printf("Rejected.\n");
+        exit(0);    
     }
 }
 
@@ -91,9 +103,4 @@ void main()
     scanf("%s", input);
 
     S();
-    
-    if (accept == 1)
-        printf("Accepted.\n");
-    else
-        printf("Rejected.\n");
 }
