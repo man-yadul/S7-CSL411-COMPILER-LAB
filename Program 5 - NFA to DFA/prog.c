@@ -46,7 +46,6 @@ void main()
     }
 
     // Create the transition table for the NFA
-    int row = 0;
     char str[10];
     for (int i = 0; i < states; i++)
     {
@@ -61,7 +60,6 @@ void main()
                     {
                         strcat(nfa_table[i][k], str);
                     }
-                    row++;
                 }
             }
         }
