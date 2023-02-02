@@ -18,7 +18,7 @@ A → Aα | β
 
 Eliminate left recursion by replacing the production with:
 A → βA′
-A → αA′|ϵ
+A → αA′| ε
 
 New grammar -
 E -> TE'
