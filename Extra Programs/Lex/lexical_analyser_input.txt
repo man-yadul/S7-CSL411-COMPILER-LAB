@@ -1,0 +1,14 @@
+#include <stdio.h>
+//	fwefwef
+/*wefwefwefwecf23342342*/
+/*
+dfwefw
+eqwrr42323
+sdfvfdbgdbgr
+*/
+void main()
+{
+	int a = 21;
+	char c[]="asfa";
+	printf("Hello");
+}
