@@ -34,6 +34,7 @@ Result: 10
 	char operand2[20];
 	char operand[5];
 %}
+
 %%
 [0-9]+	{
 	if (flag == 0)
