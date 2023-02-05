@@ -47,8 +47,8 @@ void main()
         shift = 0;
         reduce = 1;
 
-        // Accept the string if bottom of the stack contains the starting symbol and the input buffer is empty
-        if (stack[0] == productions[0][0] && input[strlen(input) - 1] == ' ')
+        // Accept the string if bottom of the stack contains only the starting symbol and the input buffer is empty
+        if (stack[0] == productions[0][0] && strlen(stack) == 1 && input[strlen(input) - 1] == ' ')
         {
             printf("String accepted.\n");
             exit(0);
